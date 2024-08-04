@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            min-height: 100vh; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            text-align: center; 
+        }
+        
+        .container {
+            width: 100vw; 
+            height: 100vh; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            background-color: #E2E2E2;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1; 
+        }
+        
+        .container h1{
+            font-size: 35px;
+            color: #555;
+            font-weight: lighter;
+        }
+
+        .container h2{
+            font-size: 50px;
+            color: #555;
+
+        }
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #ffffff;
+            color: #fff;
+            display: flex;
+            justify-content: right;
+            padding: 30px;
+            
+        
+        }
+       
+        
+        .nav-bar a {
+            color: #000000;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1em;
+        }
+        
+        .nav-bar a:hover {
+            text-decoration: underline;
+        }
+        
+        .content-section {
+            width: 100vw; 
+            background-color: #fff;
+            padding: 5% 5% 5% 5%;  
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            box-sizing: border-box; 
+            margin: 0; 
+            overflow: hidden; 
+            gap: 60px;
+        }
+        
+        .no-box-shadow {
+            box-shadow: none; 
+        }
+        
+        .content-section img,
+        .text-content {
+            flex: 1; 
+            max-width: 50%; 
+            box-sizing: border-box; 
+        }
+        
+        .content-section img {
+            height: auto;
+            object-fit: cover; 
+        }
+        
+        .text-content {
+            padding: 20px;
+            text-align: left; 
+        }
+        
+        .text-content h1 {
+            font-size: 1.5em;
+            color: #333;
+            margin: 0;
+        }
+        
+        .text-content h2 {
+            font-size: 1.2em;
+            color: #555;
+            margin: 10px 0;
+        }
+        
+        .text-content p {
+            font-size: 1em;
+            line-height: 1.6;
+            color: #666;
+            margin: 0;
+        }
+        
+        .button {
+            display:inline-flex;
+            background-color: #969696;
+            color: #fff;
+            padding: 10px 50px 10px 50px;
+            font-size: 1em;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .button:hover {
+            background-color: #969696;
+        }
+        
+        .select-container {
+            width: 100vw;
+            background-color: #E7E7E7;
+            padding: 50px; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            box-sizing: border-box; 
+        }
+        
+        .select-menu {
+            padding: 10px 40px 10px 40px;
+            border: 1px solid #ccc;
+            border-radius: 1px;
+            font-size: 1em;
+            margin-bottom: 20px; 
+        }
+
+        .select-menu-1 {
+            padding: 10px;
+            border-radius: 1px;
+            font-size: 1em;
+
+        }
+        
+        .info-container-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; 
+            width: 100%;
+            max-width: 1000px; 
+            margin: 0 auto;
+            justify-content: center; 
+        }
+        
+        .info-container-1 {
+            background-color: #969696;
+            padding: 15px;
+            text-align: left; 
+            box-sizing: border-box; 
+            width: 200px; 
+            margin-top: -30px;
+            margin-right: 100px; 
+            height: 250px;
+        }
+        .info-container-2 {
+            background-color: #969696;
+            padding: 15px;
+            text-align: left; 
+            box-sizing: border-box; 
+            margin-top: 100px;
+            width: 200px;  
+            height: 250px;
+        }
+        .info-container-3 {
+            background-color: #969696;
+            padding: 15px;
+            text-align: left; 
+            box-sizing: border-box; 
+            width: 200px; 
+            margin-top: -30px;
+            margin-left: 100px;  
+            height: 250px;
+        }
+        .info-container-4 {
+            background-color: #969696;
+            padding: 15px;
+            text-align: left; 
+            box-sizing: border-box; 
+            width: 200px; 
+            margin-top: -120px;
+            margin-right: 230px;   
+            height: 250px;
+        }
+        .info-container-5 {
+            background-color: #969696;
+            padding: 15px;
+            text-align: left; 
+            box-sizing: border-box; 
+            width: 270px; 
+            margin-top: -120px;
+            margin-left: 150px; 
+            height: 200px;
+        }
+        
+        .info-container-row h3 {
+            font-size: 1.2em;
+            color: #ffffff;
+            margin: 0 0 10px;
+        }
+        
+        .info-container-row p {
+            font-size: 1em;
+            color: #ffffff;
+        }
+
+        .iner-container h3 {
+            color: #ffffff;
+        }
+
+        .iner-container p {
+            color: #ffffff;
+        }
+
+        .info-container-row {
+            display: flex; 
+            gap: 20px;
+            width: 100%;
+            justify-content: center; 
+            flex-wrap: wrap; 
+        }
+        .text-content h2{
+            font-size: 50px;
+        }
+        .popup {
+            display: none; 
+            position: fixed; 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            z-index: 2;
+        }
+
+        .popup img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .popup .close-button {
+            display: block;
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            text-align: center;
+            border: none;
+            border-radius: 3px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .popup .close-button:hover {
+            background-color: #555;
+        }
+
+        .container-3 { 
+            width: 100vw; 
+            background-color: #F4F4F4;
+            padding: 5% 5% 5% 5%;  
+            display: flex;
+            box-sizing: border-box; 
+            margin: 0; 
+            overflow: hidden; 
+            gap: 80px;
+        }
+
+        .iner-container{
+            background-color: #969696;
+            padding: 10px 30px 10px 30px;
+            height: 50vh;
+            text-align: left;
+            width: 400px            
+
+        }
+
+        .button-2 {
+            display: inline-block;
+            background-color: #ffffff;
+            padding: 10px 40px 10px 40px;
+            font-size: 1em;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            
+            
+          
+
+        }
+
+        .container-4{
+            height: 100vh;
+            padding-top: 5%;
+            background-color: #F4F4F4;
+            
+
+        }
+
+        .container-box{
+            height: 150px;
+            width:200px;
+            background-color: #969696;
+            margin-left:-50px ;
+            margin-top: -540px;
+        }
+
+        .container-box-1{
+            height: 150px;
+            width:200px;
+            background-color: #ffffff;
+            margin-left: 100px;
+            margin-top:-50px;
+        
+           
+        }
+
+        .container-box-3{
+            height: 150px;
+            width:200px;
+            background-color: #969696;
+            margin-left: 250px;
+            margin-top:-50px;
+        
+           
+        }
+
+        .container-box-4{
+            height: 150px;
+            width:200px;
+            background-color: #ffffff;
+            margin-left: 400px;
+            margin-top:-50px;
+        
+           
+        }
+
+
+        .container-box-5{
+            height: 150px;
+            width:200px;
+            background-color: #969696;
+            margin-left: 500px;
+            margin-top:-50px;
+        
+           
+        }
+
+
+        .container-box-6{
+            height: 150px;
+            width:200px;
+            background-color: #ffffff;
+            margin-left: 650px;
+            margin-top:-50px;
+        
+           
+        }
+
+        .container-outside{
+            height: 500px;
+            width: 800px;
+            background-color: #e7e7e7;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-bar">
+            <select class="menu-select-1" id="heroImageSelector">
+                <option value="">Select</option>
+                <option value="Section 1">Section 1</option>
+                <option value="Section 2">Section 2</option>
+                <option value="Section 3">Section 3</option>
+                <option value="Section 4">Section 4</option>
+                <option value="Section 5">Section 5</option>
+                <option value="Section 6">Section 6</option>
+            </select>
+        </div>
+        <h1>Heading</h1>
+        <h2>Introduction</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,<br>
+           sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+           Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris<br>
+           nisi ut aliquip ex ea commodo consequat.<br>
+        </p>
+    </div>
+    
+    </div>
+    <div class="content-section">
+        <img src="https://via.placeholder.com/1200x600" alt="Placeholder Image">
+        <div class="text-content">
+            <h1>Heading</h1>
+            <h2>Title</h2>
+            <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit,
+                sed do<br> eiusmod tempor incididunt ut labore et<br> dolore magna aliqua.
+                 Ut enim ad minim<br> veniam, quis nostrud exercitation<br> ullamco laboris
+                 nisi ut aliquip ex ea commodo consequat.<br>
+            </p>
+            <a href="#" class="button">LINK</a>
+        </div>
+    </div>
+   
+    <div class="content-section no-box-shadow">
+        <div class="text-content">
+            <h1>Heading</h1>
+            <h2>Title</h2>
+            <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit,
+                sed do<br> eiusmod tempor incididunt ut labore et<br> dolore magna aliqua.
+                 Ut enim ad minim<br> veniam, quis nostrud exercitation<br> ullamco laboris
+                 nisi ut aliquip ex ea commodo consequat.<br>
+            </p>
+            <a href="#" class="button">LINK</a>
+        </div>
+        <img src="https://via.placeholder.com/1200x600" alt="Placeholder Image"></div>
+   
+    <div class="select-container">
+        <select class="select-menu" id="imageSelector">
+            <option value="">Select an item</option>
+            <option value="item1">Item 1</option>
+            <option value="item2">Item 2</option>
+            <option value="item3">Item 3</option>
+        </select>
+       
+        <div class="info-container-group">
+            <div class="info-container-row">
+                <div class="info-container-1">
+                    <h3>Title 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="info-container-2">
+                    <h3>Title 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="info-container-3">
+                    <h3>Title 3</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            
+            <div class="info-container-row">
+                <div class="info-container-4">
+                    <h3>Title 4</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <div class="info-container-5">
+                    <h3>Title 5</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-3">
+        <div class="iner-container">
+            <h3>Title</h3>
+            <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. Sed<br> do eiusmod<br></p>
+            <a href="#" class="button-2">LINK</a>
+        </div>
+        <div class="iner-container">
+            <h3>Title</h3>
+            <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. Sed<br> do eiusmod<br>consectetur adipiscing elit. Sed<br> do eiusmod<br>consectetur adipiscing elit. Sed<br> do eiusmod<br></p>
+            <a href="#" class="button-2">LINK</a>
+        </div>
+        <div class="iner-container">
+            <h3>Title</h3>
+            <p>Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit. Sed<br> do eiusmod<br>consectetur adipiscing elit. Sed<br> do eiusmod<br></p>
+            <a href="#" class="button-2">LINK</a>
+        </div>
+    </div>
+
+    <div class="container-4">
+        <div class="container-outside"></div>
+        <div class="container-box"></div>
+        <div class="container-box-1"></div>
+        <div class="container-box-2"></div>
+        <div class="container-box-3"></div>
+        <div class="container-box-4"></div>
+        <div class="container-box-5"></div>
+        <div class="container-box-6"></div>
+     </div> 
+    
+        
+       
+    </div> 
+   
+    <div class="popup" id="popup">
+        <img id="popupImage" src="" alt="Popup Image">
+        <button class="close-button" id="closePopup">Close</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imageSelector = document.getElementById('imageSelector');
+            const heroImageSelector = document.getElementById('heroImageSelector');
+            const popup = document.getElementById('popup');
+            const popupImage = document.getElementById('popupImage');
+            const closePopup = document.getElementById('closePopup');
+    
+            const contentSections = document.querySelectorAll('.content-section');
+            const selectContainer = document.querySelector('.select-container');
+            const container3 = document.querySelector('.container-3');
+            const container4 = document.querySelector('.container-4');
+    
+            const scrollToSection = (section) => {
+                if (section === 'top') {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            };
+    
+            const handleSelection = (value) => {
+                let imageUrl = '';
+    
+                switch (value) {
+                    case 'item1':
+                        imageUrl = 'https://via.placeholder.com/600x400?text=Image+for+Item+1';
+                        break;
+                    case 'item2':
+                        imageUrl = 'https://via.placeholder.com/600x400?text=Image+for+Item+2';
+                        break;
+                    case 'item3':
+                        imageUrl = 'https://via.placeholder.com/600x400?text=Image+for+Item+3';
+                        break;
+                    case 'Section 1':
+                        scrollToSection('top');
+                        break;
+                    case 'Section 2':
+                        scrollToSection(contentSections[0]);
+                        break;
+                    case 'Section 3':
+                        scrollToSection(contentSections[1]);
+                        break;
+                    case 'Section 4':
+                        scrollToSection(selectContainer);
+                        break;
+                    case 'Section 5':
+                        scrollToSection(container3);
+                        break;
+                    case 'Section 6':
+                        scrollToSection(container4);
+                        break;
+                    default:
+                        imageUrl = '';
+                }
+    
+                if (imageUrl) {
+                    popupImage.src = imageUrl;
+                    popup.style.display = 'block';
+                } else {
+                    popup.style.display = 'none';
+                }
+            };
+    
+            imageSelector.addEventListener('change', () => handleSelection(imageSelector.value));
+            heroImageSelector.addEventListener('change', () => handleSelection(heroImageSelector.value));
+    
+            closePopup.addEventListener('click', () => {
+                popup.style.display = 'none';
+            });
+        });
+    </script>
+    
+</body>
+</html>
